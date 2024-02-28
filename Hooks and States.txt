@@ -1,0 +1,84 @@
+HOOKS IN REACT (USE STATE)
+
+What are hooks in React?
+  Hooks are functions that let you “hook into” React state and lifecycle features from function components. Helps to use features of class without using the class.
+
+When would I use a Hook? 
+  If you write a function component and realize you need to add some state to it, previously you had to convert it to a class. Now you can use a Hook inside the existing function   component.
+
+useState()
+  One of the most well-known React hooks is the useState() hook. It lets you add a state variable to your component. The useState() hook can conveniently hold strings, arrays,       numbers, objects and much more.
+
+syntax for useState hook: 
+   const [count, setCount] = useState(0);
+
+
+*App.js
+import logo from "./logo.svg";
+import "./App.css";
+import NavBar from "./components/NavBar";
+import TextForm from "./components/TextForm";
+
+function App() {
+  return (
+    <>
+      <NavBar title="React_Project" aboutPrj="About" />
+      <div className="container my-3">
+        <TextForm heading="Enter the Text"/>
+      </div>
+      
+    </>
+  );
+}
+
+export default App;
+
+
+*TextForm.js
+import React, {useState} from "react";
+
+export default function TextForm(props) {
+    const handleUpClick = ()=>{
+        console.log("UPPERCASE was clicked" + text )
+        let newText=text.toUpperCase();
+        setText(newText)
+    }
+    const handleLowClick = ()=>{
+        console.log("lowercase was clicked" + text )
+        let newText=text.toLowerCase();
+        setText(newText)
+    }
+    const handleOnChange = (event)=>{
+        console.log("OnChange was clicked")
+        setText(event.target.value)
+    }
+    const [text, setText] = useState('Enter the Text');
+  return (
+    <div>
+      <h1>{props.heading}</h1>
+      <div className="mb-3">
+        <textarea
+          className="form-control"
+          value={text}
+          onChange={handleOnChange}
+          id="MyBox"
+          rows="9"
+        ></textarea>
+      </div>
+      { <button className="btn btn-primary" onClick={handleUpClick} /*Concept of eventHandling*/>Convert to UPPERCASE</button> }
+      &nbsp; &nbsp;
+      { <button className="btn btn-primary" onClick={handleLowClick} /*Concept of eventHandling*/>Convert to lowercase</button> }
+    </div>
+  );
+}
+
+*More Logic
+</div>
+      <div className="container my-2">
+      <h1>Text Summary</h1>
+      <p>{text.split(" ").length} words and {text.length} characters</p>
+      <p>Read in: {0.008 * text.split(" ").length} mins</p>
+      <h2>Preview</h2>
+      <p>{text}</p>
+      </div>
+    </>

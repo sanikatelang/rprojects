@@ -1,0 +1,29 @@
+Use of React Router:
+
+React Router is a JavaScript framework that lets us handle client and server-side routing in React applications. It enables the creation of single-page web or mobile apps that allow navigating without refreshing the page. It also allows us to use browser history features while preserving the right application view.
+
+Install Reacr Router: npm install react-router-dom
+Import: import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
+***USE Link instead of anchor and to instead of href
+
+<Router>
+      <NavBar
+        title="React_Project"
+        aboutPrj="About"
+        mode={mode}
+        toggleMode={toggleMode}
+      />
+      <Alert alert={alert} />
+      <div className="container my-3">
+        <Routes>
+        <Route path='/about' exact element={<About/>} />
+          <Route path="/" exact
+            element={<TextForm
+              heading="Enter the Text"
+              mode={mode}
+              showAlert={showAlert}
+              />} />
+        </Routes>
+      </div>
+ </Router>
